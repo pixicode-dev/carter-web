@@ -16,8 +16,6 @@ RUN dotnet publish "CARTER.App.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
-COPY ["CARTER.App/CARTER.App.xml", "."]
-COPY ["CARTER.App/runtimeconfig.template.json", "."]
-COPY ["CARTER.App/MailTemplates/", "."]
+
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CARTER.App.dll", "--server.urls", "http://+:80;https://+:443"]
