@@ -1,0 +1,244 @@
+﻿<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="CARTER - Coaching App">
+    <meta name="author" content="Digital Unicorn">
+    <meta name="keywords" content="carter, coaching app, basketball, basketball workout">
+
+    <!-- FAVICON -->
+    @*<link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />*@
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/carter/logo-1.png" />
+
+    <!-- TITLE -->
+    <title>CARTER - @ViewData["Title"]</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- STYLE CSS -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/dark-style.css" rel="stylesheet" />
+    <link href="../assets/css/skin-modes.css" rel="stylesheet" />
+    <link href="../assets/css/transparent-style.css" rel="stylesheet" />
+
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!--- FONT-ICONS CSS -->
+    <link href="../assets/css/icons.css" rel="stylesheet" />
+
+    <!-- COLOR SKIN CSS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="../assets/colors/color1.css" />
+
+
+</head>
+
+<body class="app sidebar-mini ltr light-mode">
+
+    <!-- GLOBAL-LOADER -->
+   @* <div id="global-loader">
+        <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+    </div>*@
+    <!-- /GLOBAL-LOADER -->
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page-main">
+
+            <!-- app-Header -->
+            @Html.Partial("_LayoutAdminHeader")
+            <!-- /app-Header -->
+            <!--APP-SIDEBAR-->
+            @Html.Partial("_LayoutAdminSideBar")
+            <!--/APP-SIDEBAR-->
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        @Html.Partial("_LayoutAdminPageHeader")
+                        <!-- PAGE-HEADER END -->
+
+                        @RenderBody()
+
+
+                    </div>
+                    <!-- CONTAINER END -->
+                </div>
+
+            </div>
+            <!--app-content end-->
+        </div>
+
+        <!-- Sidebar-right -->
+        @Html.Partial("_LayoutAdminSideBarRight")
+        <!--/Sidebar-right-->
+        <!-- FOOTER -->
+        @Html.Partial("_LayoutAdminFooter")
+        <!-- FOOTER END -->
+    </div>
+
+    <!--Modal-->
+    <div class="modal fade" id="modal-container-exercise" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header pd-20">
+                    <h5 class="modal-title" style="font-weight: bold">Test</h5><button type="button" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body pd-12">
+
+                </div>
+                <div class="modal-footer pd-20">
+
+                </div>
+                <div id="modal-loader">
+                    <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="modal-container-paymentlinks">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body text-center p-4">
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <i class="fe fe-link fs-50 text-success lh-1 mb-5 d-inline-block"></i>
+                    <h4 class="text-success tx-semibold" id="paymentlinkTitle">Payment Links</h4>
+                    <div id="paymentlinkList" class="pb-4" style="text-align: left"></div>
+                    <div id="paymentlinkButtons"></div>
+                    <div id="modal-loader-paymentlinks">
+                        <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @*<div class="modal fade" id="modal-container-paymentlinks" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="max-width: 486px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="font-weight: bold">Test</h5>
+                        <button type="button" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body pd-12">
+
+                    </div>
+                    <div class="modal-footer pd-20">
+
+                    </div>
+                    <div id="modal-loader-paymentlinks">
+                        <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+                    </div>
+                </div>
+
+            </div>
+        </div>*@
+
+    <!-- MODAL ALERT MESSAGE -->
+    <div class="modal fade" id="dialog-confirm-modal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered text-center " role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body text-center p-4">
+                    @*<button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>*@
+                    <i class="fe fe-help-circle fs-50 text-danger lh-1 mb-4 d-inline-block"></i>
+                    <h4 class="text-danger tx-semibold"></h4>
+                    <p class="mg-b-20 mg-x-20"></p>
+                    <button class="btn btn-light" data-bs-dismiss="modal" aria-label="Close" id="btn-no"></button>
+                    <button class="btn btn-primary" id="btn-yes"></button>
+                    @*<button aria-label="Close" class="btn btn-success pd-x-25" data-bs-dismiss="modal" id="btn-no">Cancel</button>
+                        <button aria-label="Close" class="btn btn-primary pd-x-25" data-bs-dismiss="modal" id="btn-yes">Agree</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Modal-->
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JQUERY JS -->
+    <script src="../assets/js/jquery.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- SPARKLINE JS-->
+    <script src="../assets/js/jquery.sparkline.min.js"></script>
+
+    <!-- CHART-CIRCLE JS-->
+    <script src="../assets/js/circle-progress.min.js"></script>
+
+    <!-- CHARTJS CHART JS-->
+    <script src="../assets/plugins/chart/Chart.bundle.js"></script>
+    <script src="../assets/plugins/chart/utils.js"></script>
+
+    <!-- PIETY CHART JS-->
+    <!--<script src="../assets/plugins/peitychart/jquery.peity.min.js"></script>
+    <script src="../assets/plugins/peitychart/peitychart.init.js"></script>-->
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="../assets/plugins/select2/select2.full.min.js"></script>
+
+    <!-- INTERNAL Data tables js-->
+    <script src="../assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+    <script src="../assets/plugins/datatable/dataTables.responsive.min.js"></script>
+
+    
+    <!-- ECHART JS-->
+    <script src="../assets/plugins/echarts/echarts.js"></script>
+
+    <!-- SIDE-MENU JS-->
+    <script src="../assets/plugins/sidemenu/sidemenu.js"></script>
+
+    <!-- Sticky js -->
+    <script src="../assets/js/sticky.js"></script>
+
+    <!-- Tooltip and Popover JS -->
+    @*<script src="../assets/js/tooltip&popover.js"></script>*@
+
+    <!-- SIDEBAR JS -->
+    <script src="../assets/plugins/sidebar/sidebar.js"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+    <script src="../assets/plugins/p-scroll/pscroll.js"></script>
+    <script src="../assets/plugins/p-scroll/pscroll-1.js"></script>
+
+    <!-- INTERNAL Notifications js -->
+    <script src="../assets/plugins/notify/js/rainbow.js"></script>
+    @*<script src="../assets/plugins/notify/js/sample.js"></script>*@
+    <script src="../assets/plugins/notify/js/jquery.growl.js"></script>
+    <script src="../assets/plugins/notify/js/notifIt.js"></script>
+
+
+    <!-- APEXCHART JS -->
+    <script src="../assets/js/apexcharts.js"></script>
+
+    <!-- INDEX JS -->
+    <script src="../assets/js/index1.js"></script>
+
+    <!-- Color Theme js -->
+    <script src="../assets/js/themeColors.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script>
+         var urlError = '@Url.Action("Error", "Home")';
+    </script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/carter/carter-app.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

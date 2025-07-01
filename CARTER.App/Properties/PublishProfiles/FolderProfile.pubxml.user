@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\phung\source\repos\CARTER_PRODUCTION_ADMIN\carterweb</_PublishTargetUrl>
+    <History>True|2024-05-24T07:54:38.5597851Z;True|2024-01-24T14:48:23.7249435+07:00;True|2023-12-08T17:52:19.2723911+07:00;True|2023-12-08T17:47:28.4357598+07:00;True|2023-12-08T17:38:56.9736382+07:00;True|2023-06-16T17:20:07.7226399+07:00;True|2023-06-16T17:03:46.8374307+07:00;True|2023-03-23T09:40:29.5236606+07:00;True|2023-03-14T14:20:43.3191661+07:00;True|2023-03-09T16:24:41.1641868+07:00;True|2023-03-09T09:37:34.3905256+07:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

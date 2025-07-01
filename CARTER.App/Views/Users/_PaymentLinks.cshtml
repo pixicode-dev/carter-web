@@ -1,0 +1,18 @@
+﻿@using CARTER.Models.Stripe
+@using Newtonsoft.Json
+@model List<PaymentLinkModel>
+@{
+    @foreach (var item in Model)
+    {
+        <label class="mt-4">@item.Price.Product.Value.ToUpper()</label>
+        <div class="d-flex">
+            <div class="input-group wd-150">
+                <div class="input-group-text">
+                    <i class="fa fa-link tx-16 lh-0 op-6"></i>
+                </div><!-- input-group-text -->
+                <input readonly class="form-control ui-timepicker-input" id="link_@item.Id" type="text" autocomplete="off" value="@item.Url">
+                <button class="btn btn btn-primary" onclick="Users.copyToClipboard('#link_@item.Id')" id="copybutton"><i class="fe fe-copy"></i></button>
+            </div><!-- input-group -->
+        </div>
+    }
+}

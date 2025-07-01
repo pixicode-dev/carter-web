@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-12">
+        <div class="card">
+            <div id="page-loader">
+                <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+            </div>
+            <div class="card-header">
+                <h3 class="card-title">Manage Users</h3>
+                <div class="btn-list ms-auto">
+                   
+                </div>
+
+            </div>
+            <div class="card-body">
+               
+                <div class="table-responsive" style="min-height: 540px">
+                    <table class="table table-bordered border-bottom" id="usersTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var urlGetUsers = '@Url.Action("GetUsers", "Users")';
+        var urlDeleteUser = '@Url.Action("DeleteUser", "Users")';
+        var urlGetPaymentLinks = '@Url.Action("GetPaymentLinks", "Users")';
+        var urlSendPaymentLinks = '@Url.Action("SendPaymentLinks", "Users")';
+        var urlChangeUserStatus = '@Url.Action("ChangeUserStatus", "Users")';
+
+    </script>
+
+    <!-- INTERNAL File-Uploads Js-->
+    <script src="~/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+    <script src="~/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+    <script src="~/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+    <script src="~/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+    <script src="~/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+
+    <!-- DATA TABLE JS-->
+    <script src="~/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+    <script src="~/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/jszip.min.js"></script>
+    <script src="~/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+    <script src="~/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.html5.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.print.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+    <script src="~/assets/plugins/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+    @*<script src="~/assets/js/table-data.js"></script>*@
+    <script src="~/assets/js/carter/carter-user.js"></script>
+
+    <!-- BOOTSTRAP-DATERANGEPICKER JS -->
+    <script src="~/assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    @*<script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>*@
+
+    <!-- FORMELEMENTS JS -->
+    @*<script src="~/assets/js/formelementadvnced.js"></script>*@
+    @*<script src="~/assets/js/form-elements.js"></script>*@
+
+    <!-- INTERNAL GALLERY JS -->
+    <!--<script src="~/assets/plugins/gallery/picturefill.js"></script>
+    <script src="~/assets/plugins/gallery/lightgallery.js"></script>
+    <script src="~/assets/plugins/gallery/lightgallery-1.js"></script>
+    <script src="~/assets/plugins/gallery/lg-pager.js"></script>
+    <script src="~/assets/plugins/gallery/lg-autoplay.js"></script>
+    <script src="~/assets/plugins/gallery/lg-fullscreen.js"></script>
+    <script src="~/assets/plugins/gallery/lg-zoom.js"></script>
+    <script src="~/assets/plugins/gallery/lg-hash.js"></script>
+    <script src="~/assets/plugins/gallery/lg-share.js"></script>-->
+    <!-- FORMVALIDATION JS -->
+    <script src="../assets/js/form-validation.js"></script>
+
+
+}

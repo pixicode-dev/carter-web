@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Exercises";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-12">
+        <div class="card">
+            <div id="page-loader">
+                <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+            </div>
+            <div class="card-header">
+                <h3 class="card-title">Manage Exercises</h3>
+                <div class="btn-list ms-auto">
+                    <a href="javascript:void(0);" class="btn btn-primary btn-icon text-white" id="btn-add-exercise">
+                        <span>
+                            <i class="fe fe-plus"></i>
+                        </span> Add Exercise
+                    </a>
+                    @*<a href="javascript:void(0);" class="btn btn-primary">Create new exercise</a>*@
+                    @*<a href="javascript:void(0);" class="btn btn-secondary">Save and continue</a>
+                        <a href="javascript:void(0);" class="btn btn-danger">Cancel</a>*@
+                </div>
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive" style="min-height: 540px">
+                   
+                    <table class="table table-bordered border-bottom" id="exercisesTable"></table>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
+
+@section scripts{
+    <script>
+        var urlGetexercises = '@Url.Action("GetExercises", "Exercises")';
+        var urlGetTags = '@Url.Action("GetTags", "Exercises")';
+        var urlGetCategories = '@Url.Action("GetCategories", "Exercises")';
+        var urlGetExerciseTypes = '@Url.Action("GetExerciseTypes", "Exercises")';
+        var urlGetExerciseStatuses = '@Url.Action("GetExerciseStatuses", "Exercises")';
+        var urlAddExercise = '@Url.Action("AddExercise", "Exercises")';
+        var urlEditExercise = '@Url.Action("EditExercise", "Exercises")';
+        var urlDeleteExercise = '@Url.Action("DeleteExercise", "Exercises")';
+        var urlUploadTacticalBoard = '@Url.Action("UploadTacticalBoard", "Exercises")';
+
+    </script>
+
+    <!-- INTERNAL File-Uploads Js-->
+    <script src="~/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+    <script src="~/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+    <script src="~/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+    <script src="~/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+    <script src="~/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+
+    <!-- DATA TABLE JS-->
+    <script src="~/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+    <script src="~/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/jszip.min.js"></script>
+    <script src="~/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+    <script src="~/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.html5.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.print.min.js"></script>
+    <script src="~/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+    <script src="~/assets/plugins/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+    @*<script src="~/assets/js/table-data.js"></script>*@
+    <script src="~/assets/js/carter/carter-exercise.js"></script>
+
+    <!-- BOOTSTRAP-DATERANGEPICKER JS -->
+    <script src="~/assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    @*<script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>*@
+
+    <!-- FORMELEMENTS JS -->
+    @*<script src="~/assets/js/formelementadvnced.js"></script>*@
+    @*<script src="~/assets/js/form-elements.js"></script>*@
+
+    <!-- FORMEDITOR JS -->
+    <script src="~/assets/plugins/quill/quill.min.js"></script>
+    <script src="~/assets/js/form-editor2.js"></script>
+
+
+    <!-- INTERNAL GALLERY JS -->
+    <!--<script src="~/assets/plugins/gallery/picturefill.js"></script>
+    <script src="~/assets/plugins/gallery/lightgallery.js"></script>
+    <script src="~/assets/plugins/gallery/lightgallery-1.js"></script>
+    <script src="~/assets/plugins/gallery/lg-pager.js"></script>
+    <script src="~/assets/plugins/gallery/lg-autoplay.js"></script>
+    <script src="~/assets/plugins/gallery/lg-fullscreen.js"></script>
+    <script src="~/assets/plugins/gallery/lg-zoom.js"></script>
+    <script src="~/assets/plugins/gallery/lg-hash.js"></script>
+    <script src="~/assets/plugins/gallery/lg-share.js"></script>-->
+    <!-- FORMVALIDATION JS -->
+    <script src="../assets/js/form-validation.js"></script>
+
+    
+}

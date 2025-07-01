@@ -1,0 +1,214 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .dropify-wrapper {
+        width: 128px !important;
+        height: 128px !important;
+        border-radius: 50% !important;
+        margin: 0 auto;
+    }
+    .dropify-wrapper .dropify-preview .dropify-render img {
+        background: transparent !important
+    }
+</style>
+
+<!-- ROW-1 OPEN -->
+<div class="row" id="user-profile">
+    <div class="col-lg-12">
+        
+        <div class="card" style="background: transparent !important; box-shadow: none">
+             <div id="page-loader">
+                <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="wideget-user">
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-xl-6">
+
+                                <div class="wideget-user-desc d-sm-flex">
+
+                                    <div class="wideget-user-img">
+                                        <img class="" src="../assets/images/users/8.jpg" style="width: 128px" alt="img" id="avatar">
+                                    </div>
+                                    <div class="user-wrap">
+                                        <h4 id="profileName"></h4>
+                                        <h6 class="text-muted mb-3" id="createdDate"></h6>
+                                        <a href="javascript:void(0);" class="btn btn-primary mt-1 mb-1" id="btn-edit-profile"><i class="fa fa-user-o"></i> Edit Profile</a>
+                                        <a href="javascript:void(0);" class="btn btn-secondary mt-1 mb-1" id="btn-change-password"><i class="fa fa-key"></i> Change password</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-xl-6">
+                                @*<div class="text-xl-right mt-4 mt-xl-0">
+                                <a href="emailservices.html" class="btn btn-white">Message</a>
+                                <a href="editprofile.html" class="btn btn-primary">Edit Profile</a>
+                                </div>*@
+                                <div class="mt-5">
+                                    <div class="main-profile-contact-list float-lg-end d-lg-flex">
+                                        <div class="me-5">
+                                            <div class="media">
+                                                <div class="media-icon bg-primary  me-3 mt-1">
+                                                    <i class="fe fe-users fs-20 text-white"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="text-muted">Directors</span>
+                                                    <div class="fw-semibold fs-25" id="countDirectors">
+                                                        0
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="me-5 mt-5 mt-md-0">
+                                            <div class="media">
+                                                <div class="media-icon bg-success me-3 mt-1">
+                                                    <i class="fe fe-users  fs-20 text-white"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="text-muted">Coaches</span>
+                                                    <div class="fw-semibold fs-25" id="countCoaches">
+                                                        0
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="me-0 mt-5 mt-md-0">
+                                            <div class="media">
+                                                <div class="media-icon bg-warning me-3 mt-1">
+                                                    <i class="fe fe-users fs-20 text-white"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="text-muted">Players</span>
+                                                    <div class="fw-semibold fs-25" id="countPlayers">
+                                                        0
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top">
+
+                    <div class="wideget-user-tab">
+                        <div class="tab-menu-heading">
+                            <div class="tabs-menu1">
+                                <ul class="nav">
+                                    <li class=""><a href="#tab-51" class="active show" data-bs-toggle="tab">Profile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height: 9px"></div>
+            <div class="tab-content">
+                <div class="tab-pane active show" id="tab-51">
+
+                    <div id="profile-log-switch">
+
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <div class="media-heading">
+                                    <h5><strong>Personal Information</strong></h5>
+                                </div>
+                                <div class="table-responsive ">
+
+                                    <table class="table row table-borderless">
+                                        <tbody class="col-lg-12 col-xl-6 p-0">
+                                            <tr>
+                                                <td><strong>Email:</strong> <span id="email"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Full Name:</strong> <span id="fullName"></span></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td><strong>Phone Number:</strong> <span id="phoneNumber"></span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><strong>Address:</strong> <span id="address"></span></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+       
+    </div>
+    <!-- COL-END -->
+</div>
+<div class="modal fade" id="modal-container-change-password" tabindex="-1" role="dialog">
+    
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 350px !important">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-weight: bold">Change Password</h5><button type="button" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body pb-1">
+               
+            </div>
+            <div class="modal-footer p-3">
+
+            </div>
+            <div id="modal-loader">
+                <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-container-edit-profile" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-weight: bold">Edit Profile</h5><button type="button" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body pb-1">
+
+            </div>
+            <div class="modal-footer p-3">
+
+            </div>
+            <div id="modal-loader">
+                <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ROW-1 CLOSED -->
+@*@section script{
+    <script src="~/assets/js/carter/carter-profile.js"></script>
+    <script>
+        var urlChangePassword = '@Url.Action("ChangePassword", "Users")';
+        let createdDate = moment.utc('@userResponse.Data?.CreatedDate').local().format('YYYY-MM-DD HH:mm A');
+        $("#createdDate").html(createdDate);
+    </script>
+}*@
+
+@section scripts{
+    <script src="~/assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="~/assets/js/carter/carter-profile.js"></script>
+    <script src="~/assets/plugins/fileuploads/js/fileupload.js"></script>
+    <script>
+        var urlChangePassword = '@Url.Action("ChangePassword", "Users")';
+        var urlEditProfile = '@Url.Action("EditProfile", "Users")';
+        var urlGetProfile = '@Url.Action("GetProfile", "Users")';
+    </script>
+}

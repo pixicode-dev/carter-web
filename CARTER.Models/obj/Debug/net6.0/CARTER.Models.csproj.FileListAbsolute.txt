@@ -1,0 +1,12 @@
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\bin\Debug\net6.0\CARTER.Models.deps.json
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\bin\Debug\net6.0\CARTER.Models.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\bin\Debug\net6.0\CARTER.Models.pdb
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\CARTER.Models.csproj.AssemblyReference.cache
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\CARTER.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\CARTER.Models.AssemblyInfoInputs.cache
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\CARTER.Models.AssemblyInfo.cs
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\CARTER.Models.csproj.CoreCompileInputs.cache
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\CARTER.Models.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\refint\CARTER.Models.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\CARTER.Models.pdb
+C:\Users\phung\source\repos\CARTERWEB\CARTER.Models\obj\Debug\net6.0\ref\CARTER.Models.dll

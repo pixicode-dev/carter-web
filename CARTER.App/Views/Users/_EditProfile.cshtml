@@ -1,0 +1,128 @@
+﻿@using CARTER.Models.System.Users
+@using Newtonsoft.Json
+@model AdminUpdateRequest
+@{
+    var avatar = Model.Avatar;
+}
+@using (Html.BeginForm("EditProfile", "Users", FormMethod.Post, new { name = "frmEditProfile", id = "frmEditProfile", enctype = "multipart/form-data", @class = "needs-validation" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.GenderId)
+    @Html.HiddenFor(model => model.Avatar)
+    @Html.HiddenFor(model => model.YearOfBirth)
+    @Html.HiddenFor(model => model.NationalityId)
+    @Html.HiddenFor(model => model.Location.City)
+    @Html.HiddenFor(model => model.Location.Country)
+    @Html.HiddenFor(model => model.Location.Latitude)
+    @Html.HiddenFor(model => model.Location.Longitude)
+    @Html.HiddenFor(model => model.Location.CountryCode)
+    @Html.HiddenFor(model => model.Location.PostalCode)
+    <div class="panel panel-primary">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="file" class="dropify" data-bs-height="180" id="AvatarFile" name="AvatarFile" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group mb-2">
+                    <label class="form-label">Email</label>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "invalid-feedback" })
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-2">
+                    <label class="form-label">First Name</label>
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "invalid-feedback" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-2">
+                    <label class="form-label">Last Name</label>
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "invalid-feedback" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group mb-2">
+                    <label class="form-label">Phone Number</label>
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "invalid-feedback" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    @Html.EditorFor(model => model.Location.Address, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    @Html.ValidationMessageFor(model => model.Location.Address, "", new { @class = "invalid-feedback" })
+                </div>
+            </div>
+        </div>
+        
+    </div>
+}
+
+@*<script src="~/assets/plugins/fileuploads/js/fileupload.js"></script>
+<script src="~/assets/plugins/fileuploads/js/file-upload.js"></script>*@
+<script>
+    $('.dropify').dropify({
+        defaultFile: '@Model.Avatar',
+        showRemove: false,
+        showLoader: false,
+        showErrors: false,
+        messages: {
+            'default': 'Avatar',
+            'replace': 'Avatar',
+            'remove': 'Remove',
+            'error': 'Ooops, something wrong appended.'
+        },
+        error: {
+            'fileSize': 'The file size is too big (2M max).'
+        }
+    });
+
+
+    $("#frmEditProfile").off('submit');
+    $("#frmEditProfile").on('submit', function (e) {
+        Profile.loadSpinner(true, '#modal-container-edit-profile #modal-loader');
+        e.preventDefault();
+        $form = $("#frmEditProfile")
+        var urlAdd = $form.attr("action");
+        var formData = new FormData(this);
+        $.ajax({
+            dataType: "json",
+            url: urlEditProfile,
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                //notif({
+                //    msg: "Your profile has been updated",
+                //    type: "success"
+                //});
+                $("#modal-container-edit-profile").modal('hide');
+                Profile.loadProfile();
+            },
+            error: function (res) {
+                if (res.status == 200) {
+                    Profile.showEditProfileModal(res.responseText, "Profile.editProfile()");
+                }
+               Profile.loadSpinner(false, '#modal-container-edit-profile #modal-loader');
+            }
+        });
+        e.preventDefault();
+
+    });
+</script>

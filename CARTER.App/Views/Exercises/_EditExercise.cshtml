@@ -1,0 +1,176 @@
+﻿@using CARTER.Models.Exercises
+@using Newtonsoft.Json
+@model ExerciseUpdateRequest
+@using (Html.BeginForm("UpdateExercise", "Exercises", FormMethod.Post, new { name = "frmUpdateExercise", id = "frmUpdateExercise", enctype = "multipart/form-data", @class = "needs-validation" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    @*@Html.Hidden("Tags", JsonConvert.SerializeObject(Model.ExerciseTags))*@
+    <div class="card m-0">
+        @*<div class="card-header">
+                <h3 class="card-title">Tabs style</h3>
+            </div>*@
+        <div class="card-body p-0">
+            <div class="panel panel-primary">
+                <div class="tab-menu-heading p-4">
+                    <div class="tabs-menu1 ">
+                        <!-- Tabs -->
+                        <ul class="nav panel-tabs">
+                            <li><a href="#tab1" class="active me-1" data-bs-toggle="tab">Content</a></li>
+                            <li><a href="#tab3" data-bs-toggle="tab" class="me-1">Instruction</a></li>
+                            <li><a href="#tab4" data-bs-toggle="tab" class="me-1">Evolution</a></li>
+                            <li><a href="#tab5" data-bs-toggle="tab" class="me-1">Tactical Boards</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body tabs-menu-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active " id="tab1">
+                            <div class="form-group ">
+                                <label class="form-label">Title</label>
+
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { id = "tilte", @class = "form-control mb-4", autocomplete = "off" } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "invalid-feedback" })
+
+                            </div>
+                            <div class="form-group ">
+                                <label class="form-label">Objectives</label>
+                                <div class="ql-wrapper ql-wrapper-modal">
+                                    @Html.HiddenFor(model => model.Objectives)
+                                    <div class="flex-1" id="quillObjectives">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Tags</label>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <select class="form-control form-select" multiple="multiple" name="TagNames" id="TagNames"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="form-label">Categories</label>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <select class="form-control form-select" multiple="multiple" name="CategoryNames" id="CategoryNames"></select>
+                                                @*@Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.Categories, "Id", "Value"), new { @Name = "CategoryId", @Id = "CategoryId", @Class = "form-control form-select" })*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Types</label>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <select class="form-control form-select" multiple="multiple" name="TypeNames" id="TypeNames"></select>
+                                                @*@Html.DropDownListFor(model => model.ExerciseTypeId, new SelectList(Model.ExerciseTypes, "Id", "Value"), new { @Name = "ExerciseTypeId", @Id = "ExerciseTypeId", @Class = "form-control form-select" })*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Status</label>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                @Html.DropDownListFor(model => model.StatusId, new SelectList(Model.Statuses, "Id", "Value"), new { @Name = "StatusId", @Id = "StatusId", @Class = "form-control form-select" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            @*<div class="form-group">
+                <label class="custom-switch">
+                    @Html.CheckBoxFor(model => model.IsActive, new { @class = "custom-switch-input" })
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Publish</span>
+                </label>
+            </div>*@
+                        </div>
+                        <div class="tab-pane " id="tab3">
+                            <div class="form-group ">
+                                @Html.HiddenFor(model => model.Instruction)
+                                <div class="ql-wrapper ql-wrapper-modal">
+                                    <div class="flex-1" id="quillInstruction">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab4">
+                            <div class="form-group">
+                                @Html.HiddenFor(model => model.Evolution)
+                                <div class="ql-wrapper ql-wrapper-modal">
+                                    <div class="flex-1" id="quillEvolution">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab5">
+                            <div id="tacticalboardfiles">
+                                @if (Model != null && Model.Tacticalboards != null)
+                                {
+                                    for (int i = 0; i < Model.Tacticalboards.Count; i++)
+                                    {
+                                        @Html.HiddenFor(model => model.Tacticalboards[i], new { @class = "testclass" })
+                                    }
+                                }
+                            </div>
+                            <div class="form-group mb-0">
+                                <input id="files" type="file" name="file" accept=".jpg, .png, image/jpeg, image/png" value="" multiple>
+                                <div class="row pt-5 img-gallery" id="lightgallery"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+<script>
+    var tags = @Html.Raw(JsonConvert.SerializeObject(Model.Tags) as String);
+    var categories = @Html.Raw(JsonConvert.SerializeObject(Model.Categories) as String);
+    var types = @Html.Raw(JsonConvert.SerializeObject(Model.Types) as String);
+    var allTags = tags.map(a => a.Name);
+    var allCategories = categories.map(a => a.Value);
+    var allTypes = types.map(a => a.Value);
+    var selectedTags = @Html.Raw(JsonConvert.SerializeObject(Model.TagNames) as String);
+    var selectedCategories = @Html.Raw(JsonConvert.SerializeObject(Model.CategoryNames) as String);
+    var selectedTypes = @Html.Raw(JsonConvert.SerializeObject(Model.TypeNames) as String);
+    $("#frmUpdateExercise").off('submit');
+    $("#frmUpdateExercise").on('submit', function (e) {
+        $("#modal-loader").fadeIn("fast");
+        e.preventDefault();
+        $form = $("#frmUpdateExercise")
+        var urlUpdate = $form.attr("action");
+        var formData = new FormData(this);
+        $.ajax({
+            dataType: "json",
+            url: urlUpdate,
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                Exercises.reloadExercises();
+                $("#modal-loader").fadeOut("fast");
+                $("#modal-container-exercise").modal('hide');
+            },
+            error: function (res) {
+                if (res.status == 200) {
+                    Exercises.showExerciseModal(res.responseText, "Edit Exercise", "Exercises.updateExercise()");
+                }
+                $("#modal-loader").fadeOut("fast");
+            }
+        });
+        e.preventDefault();
+
+    });
+</script>

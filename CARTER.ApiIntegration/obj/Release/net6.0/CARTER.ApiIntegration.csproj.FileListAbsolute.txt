@@ -1,0 +1,15 @@
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\bin\Release\net6.0\CARTER.ApiIntegration.deps.json
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\bin\Release\net6.0\CARTER.ApiIntegration.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\bin\Release\net6.0\CARTER.ApiIntegration.pdb
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\bin\Release\net6.0\CARTER.Models.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\bin\Release\net6.0\CARTER.Models.pdb
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.ApiIntegration.csproj.AssemblyReference.cache
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.ApiIntegration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.ApiIntegration.AssemblyInfoInputs.cache
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.ApiIntegration.AssemblyInfo.cs
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.ApiIntegration.csproj.CoreCompileInputs.cache
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.ApiIntegration.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\refint\CARTER.ApiIntegration.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.ApiIntegration.pdb
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\ref\CARTER.ApiIntegration.dll
+C:\Users\phung\source\repos\CARTERWEB\CARTER.ApiIntegration\obj\Release\net6.0\CARTER.A.EF3EE062.Up2Date
